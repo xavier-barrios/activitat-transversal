@@ -34,8 +34,8 @@
     </div>
 
     <div class="formulario">
-        <form action="./inscripciones.php" method="POST" onsubmit="return validacionFor()">
-            <input type="text" id="dni" name="dni" placeholder="DNI">
+        <form action="./inscripciones.php" method="POST" onsubmit="return validacionForm() && validarDNI()">
+            <input type="text" name="dni" id="dni" placeholder="DNI">
             <input type="text" id="nombre" name="nombre" placeholder="Nombre...">
             <br>
             <input type="text" id="cognom1" name="cognom1" placeholder="Primer cognom...">
@@ -57,7 +57,8 @@
                 <option value="discapacitado">discapacitado</option>
             </select>
             <div id="message"></div><br>
-            <input type="submit" id="submit" name="submit" value="Registrarse">
+            <!-- <input type="submit" id="submit" name="submit" value="Registrarse"> -->
+            <button type="submit" id="submit" name="submit" value="Registrarse" >Registrarse</button>
         </form>
         <?php
 

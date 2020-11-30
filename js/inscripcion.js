@@ -1,5 +1,6 @@
 window.onload = function() {
     document.getElementById('dni').addEventListener('focusout', validarDNI);
+    document.getElementById('fecha').addEventListener('focusout', categoria);
 }
 
 function validacionForm() {
@@ -26,23 +27,6 @@ function validacionForm() {
         event.preventDefault()
     }
 }
-
-function validacionFor() {
-    // alert('hola');
-    var inputs = document.getElementsByTagName("input");
-    for (let i = 0; i < inputs.length; i++) {
-        if (inputs[i].type == 'text' && inputs[i].value == '') {
-            inputs[i].style.borderColor = 'red';
-        } else {
-            input[i].style.borderColor = 'transparent';
-        }
-        // console.log(inputs[i].type);
-    }
-    return false;
-}
-
-
-
 
 /* validarDNI */
 function validarDNI() {
@@ -94,17 +78,34 @@ function validarDNI() {
 }
 /* Mostrar categoría a partir de la fecha de nacimiento */
 function categoria() {
-    var nacimiento = document.getElementById('nac').value;
+    var nacimiento = document.getElementById('fecha').value;
     var nac = new Date(nacimiento);
     var msg = document.getElementById('msg');
     var fecha = new Date();
+    var anoactual = fecha.getFullYear();
+    var fechanac = nac.getFullYear();
+    var result = anoactual - fechanac;
 
-    console.log(nac);
-    console.log(fecha);
+    if (result >= 0 && result <= 10) {
+        msg.innerHTML = 'categoria: infantil de (0-10 años)';
+    } else if (result >= 11 && result <= 15) {
+        msg.innerHTML = 'categoria: junior (11-15 años)';
+    } else if (result >= 16 && result <= 20) {
+        msg.innerHTML = 'categoria: senior (16-20 años)';
+    } else if (result >= 21 && result <= 65) {
+        msg.innerHTML = 'categoria: veteranos (21-65 años)';
+    } else if (result >= 66 && result <= 90) {
+        msg.innerHTML = 'categoria: jubilados (mayor de 66 años)';
+    } else {
+        msg.innerHTML = 'si su edad es correcta no deberia hacer una cursa o directamente esta usted muerto';
+    }
+
+    // console.log(nac);
+    // console.log(fecha);
 
     // si la fecha de nacimiento es inferior a 30 de nov. 2020 va a indicarnos que somos viejos
-    if (nac < fecha) {
-        msg.innerHTML = 'somos viejos';
-    }
+    // if (nac < fecha) {
+    //     msg.innerHTML = 'somos viejos';
+    // }
 
 }

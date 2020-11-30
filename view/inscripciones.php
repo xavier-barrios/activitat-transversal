@@ -42,20 +42,21 @@
             <input type="date" id="fecha" name="fecha" placeholder="...">
             <br>
             <input type="email" id="email" name="email" placeholder="Email...">
-            <br>
+            
             <select id="sexo" name="sexo">
                 <option value="Home">Home</option>
                 <option value="Dona">Dona</option>
                 <option value="Indefinido">Indefinido </option>
             </select>
-            <select id="categoria" name="categoria">
+            <!-- <select id="categoria" name="categoria">
                 <option value="infantil">infantil (0-10)</option>
                 <option value="junior">junior (11-15)</option>
                 <option value="senior">senior (16-20)</option>
                 <option value="veteranos">veteranos (21-65)</option>
                 <option value="jubilados">jubilados (mayor de 66)</option>
                 <option value="discapacitado">discapacitado</option>
-            </select>
+            </select> -->
+            <div id="msg"></div><br>
             <div id="message"></div><br>
             <!-- <input type="submit" id="submit" name="submit" value="Registrarse"> -->
             <button type="submit" id="submit" name="submit" value="Registrarse" >Registrarse</button>
